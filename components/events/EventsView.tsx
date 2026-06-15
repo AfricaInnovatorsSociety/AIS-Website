@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { motion } from "framer-motion";
 import { EventCard } from "./EventCard";
 import { cn } from "@/lib/cn";
 import type { EventFrontmatter, ContentEntry } from "@/lib/content";
@@ -36,39 +37,48 @@ export function EventsView({
   return (
     <div>
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
-        <div role="tablist" aria-label="Event filter" className="inline-flex p-1 rounded-full bg-charcoal-100 self-start">
-          <button
-            role="tab"
-            aria-selected={tab === "upcoming"}
-            onClick={() => setTab("upcoming")}
-            className={cn(
-              "px-5 py-2 text-sm font-semibold rounded-full transition-colors",
-              tab === "upcoming"
-                ? "bg-white text-charcoal-900 shadow-[var(--shadow-soft)]"
-                : "text-charcoal-600 hover:text-charcoal-900",
-            )}
-          >
-            Upcoming
-            <span className="ml-2 inline-flex items-center justify-center min-w-5 h-5 px-1.5 rounded-full bg-crimson-100 text-crimson-700 text-[11px] font-bold">
-              {upcoming.length}
-            </span>
-          </button>
-          <button
-            role="tab"
-            aria-selected={tab === "past"}
-            onClick={() => setTab("past")}
-            className={cn(
-              "px-5 py-2 text-sm font-semibold rounded-full transition-colors",
-              tab === "past"
-                ? "bg-white text-charcoal-900 shadow-[var(--shadow-soft)]"
-                : "text-charcoal-600 hover:text-charcoal-900",
-            )}
-          >
-            Past
-            <span className="ml-2 inline-flex items-center justify-center min-w-5 h-5 px-1.5 rounded-full bg-charcoal-200 text-charcoal-700 text-[11px] font-bold">
-              {past.length}
-            </span>
-          </button>
+        <div
+          role="tablist"
+          aria-label="Event filter"
+          className="inline-flex p-1 rounded-full bg-charcoal-100 self-start"
+        >
+          {(["upcoming", "past"] as const).map((id) => {
+            const count = id === "upcoming" ? upcoming.length : past.length;
+            const active = tab === id;
+            return (
+              <button
+                key={id}
+                role="tab"
+                aria-selected={active}
+                onClick={() => setTab(id)}
+                className={cn(
+                  "relative px-5 py-2 text-sm font-semibold rounded-full transition-colors",
+                  active ? "text-charcoal-900" : "text-charcoal-600 hover:text-charcoal-900",
+                )}
+              >
+                {active && (
+                  <motion.span
+                    layoutId="events-tab-pill"
+                    className="absolute inset-0 bg-white rounded-full shadow-[var(--shadow-soft)]"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  />
+                )}
+                <span className="relative z-10 inline-flex items-center capitalize">
+                  {id}
+                  <span
+                    className={cn(
+                      "ml-2 inline-flex items-center justify-center min-w-5 h-5 px-1.5 rounded-full text-[11px] font-bold",
+                      id === "upcoming"
+                        ? "bg-crimson-100 text-crimson-700"
+                        : "bg-charcoal-200 text-charcoal-700",
+                    )}
+                  >
+                    {count}
+                  </span>
+                </span>
+              </button>
+            );
+          })}
         </div>
 
         {allTags.length > 0 && (

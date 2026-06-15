@@ -3,9 +3,10 @@ import { Section } from "@/components/ui/Container";
 import { Card, CardBody } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { OriginStory, MissionVisionValues } from "@/components/about/AboutSections";
 import { siteConfig } from "@/content/site.config";
 import { buildMetadata } from "@/lib/seo";
-import { Target, Eye, Heart, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 export const metadata = buildMetadata({
   title: "About",
@@ -26,11 +27,7 @@ export default function AboutPage() {
         <div className="grid lg:grid-cols-[1.4fr_1fr] gap-12 lg:gap-16">
           <article className="prose-lg max-w-none">
             <SectionHeading eyebrow="Our story" title="Where AIS comes from." />
-            <div className="mt-6 space-y-5 text-lg text-charcoal-700 leading-relaxed text-pretty">
-              {siteConfig.originStory.map((p, i) => (
-                <p key={i}>{p}</p>
-              ))}
-            </div>
+            <OriginStory />
           </article>
 
           <aside className="lg:sticky lg:top-28 self-start">
@@ -40,7 +37,7 @@ export default function AboutPage() {
                 <h3 className="text-lg font-bold">{siteConfig.affiliation}</h3>
                 <p className="mt-2 text-sm text-charcoal-600 leading-relaxed">
                   AIS is a recognised student organisation at {siteConfig.affiliation}, the
-                  university's home for engineering and technology leadership in Africa.
+                  university&apos;s home for engineering and technology leadership in Africa.
                 </p>
                 <a
                   href="https://www.africa.engineering.cmu.edu"
@@ -58,46 +55,7 @@ export default function AboutPage() {
       </Section>
 
       <Section className="bg-white border-y border-charcoal-100">
-        <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-start">
-          <div className="space-y-8">
-            <div>
-              <div className="inline-flex items-center gap-2 text-crimson-700 mb-3">
-                <Target className="h-5 w-5" />
-                <span className="text-xs font-semibold uppercase tracking-[0.18em]">Mission</span>
-              </div>
-              <p className="text-2xl md:text-3xl font-semibold text-charcoal-900 leading-snug text-balance">
-                {siteConfig.mission}
-              </p>
-            </div>
-            <div>
-              <div className="inline-flex items-center gap-2 text-crimson-700 mb-3">
-                <Eye className="h-5 w-5" />
-                <span className="text-xs font-semibold uppercase tracking-[0.18em]">Vision</span>
-              </div>
-              <p className="text-xl md:text-2xl text-charcoal-700 leading-snug text-balance">
-                {siteConfig.vision}
-              </p>
-            </div>
-          </div>
-
-          <div>
-            <div className="inline-flex items-center gap-2 text-crimson-700 mb-5">
-              <Heart className="h-5 w-5" />
-              <span className="text-xs font-semibold uppercase tracking-[0.18em]">Values</span>
-            </div>
-            <div className="grid sm:grid-cols-2 gap-4">
-              {siteConfig.values.map((v) => (
-                <div
-                  key={v.title}
-                  className="p-5 rounded-2xl bg-[var(--color-cream)] border border-charcoal-100 hover:border-crimson-200 transition-colors"
-                >
-                  <h4 className="font-bold text-charcoal-900">{v.title}</h4>
-                  <p className="mt-1.5 text-sm text-charcoal-600 leading-relaxed">{v.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+        <MissionVisionValues />
       </Section>
 
       <Section>

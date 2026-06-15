@@ -1,14 +1,20 @@
 "use client";
 
-import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { Crown, GraduationCap, Linkedin, Mail, Users } from "lucide-react";
+import { useState } from "react";
 import { Card, CardBody } from "@/components/ui/Card";
 import { Avatar } from "@/components/ui/Avatar";
 import { Badge } from "@/components/ui/Badge";
 import { cn } from "@/lib/cn";
 import type { Leader, LeadershipYear } from "@/content/leadership";
+import { OrgTree, LeaderModal } from "./OrgTree";
 
-type Variant = "founder" | "advisor" | "default";
+const easeOut = [0.16, 1, 0.3, 1] as const;
+
+/* -------------------------------------------------------------------------- */
+/*                          Permanent leadership cards                        */
+/* -------------------------------------------------------------------------- */
 
 function LeaderLinks({ leader }: { leader: Leader }) {
   if (!leader.linkedin && !leader.email) return null;
@@ -38,62 +44,61 @@ function LeaderLinks({ leader }: { leader: Leader }) {
   );
 }
 
-function FeatureCard({
+function PermanentCard({
   leader,
   variant,
+  delay = 0,
 }: {
   leader: Leader;
   variant: "founder" | "advisor";
+  delay?: number;
 }) {
   const isFounder = variant === "founder";
   return (
-    <Card
-      className={cn(
-        "overflow-hidden",
-        isFounder ? "ring-1 ring-crimson-100" : "ring-1 ring-amber-100",
-      )}
+    <motion.div
+      initial={{ opacity: 0, y: 18 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.6, ease: easeOut, delay }}
+      whileHover={{ y: -3 }}
     >
-      <div
+      <Card
         className={cn(
-          "px-6 py-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-white",
-          isFounder ? "gradient-brand" : "bg-amber-deep",
+          "overflow-hidden h-full",
+          isFounder ? "ring-1 ring-crimson-100" : "ring-1 ring-amber-100",
         )}
       >
-        {isFounder ? <Crown className="h-4 w-4" /> : <GraduationCap className="h-4 w-4" />}
-        {isFounder ? "Founder" : "Faculty Advisor"}
-      </div>
-      <CardBody className="!p-8">
-        <div className="flex flex-col sm:flex-row gap-6 items-start">
-          <Avatar name={leader.name} src={leader.photo} size={120} className="shrink-0" />
-          <div>
-            <h3 className="text-xl font-bold">{leader.name}</h3>
-            <p className="text-sm text-crimson-700 font-semibold mt-1">{leader.role}</p>
-            <p className="mt-3 text-sm text-charcoal-600 leading-relaxed">{leader.bio}</p>
-            <LeaderLinks leader={leader} />
-          </div>
+        <div
+          className={cn(
+            "px-6 py-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-white",
+            isFounder ? "gradient-brand" : "bg-amber-deep",
+          )}
+        >
+          {isFounder ? <Crown className="h-4 w-4" /> : <GraduationCap className="h-4 w-4" />}
+          {isFounder ? "Founder" : "Faculty Advisor"}
         </div>
-      </CardBody>
-    </Card>
+        <CardBody className="!p-7 md:!p-8">
+          <div className="flex flex-col sm:flex-row gap-6 items-start">
+            <Avatar name={leader.name} src={leader.photo} size={96} className="shrink-0" />
+            <div>
+              <h3 className="text-lg sm:text-xl font-bold leading-tight">{leader.name}</h3>
+              <p className="text-sm text-crimson-700 font-semibold mt-1">{leader.role}</p>
+              {leader.program && (
+                <p className="text-xs text-charcoal-500 mt-0.5">{leader.program}</p>
+              )}
+              <p className="mt-3 text-sm text-charcoal-600 leading-relaxed">{leader.bio}</p>
+              <LeaderLinks leader={leader} />
+            </div>
+          </div>
+        </CardBody>
+      </Card>
+    </motion.div>
   );
 }
 
-function TeamMemberCard({ leader }: { leader: Leader }) {
-  return (
-    <Card className="overflow-hidden hover:border-crimson-200 transition-colors h-full">
-      <CardBody>
-        <div className="flex flex-col items-center text-center">
-          <Avatar name={leader.name} src={leader.photo} size={96} className="shrink-0" />
-          <div className="mt-4 w-full">
-            <h3 className="font-bold">{leader.name}</h3>
-            <p className="text-sm text-crimson-700 font-semibold mt-1">{leader.role}</p>
-            <p className="mt-3 text-sm text-charcoal-600 leading-relaxed">{leader.bio}</p>
-            <LeaderLinks leader={leader} />
-          </div>
-        </div>
-      </CardBody>
-    </Card>
-  );
-}
+/* -------------------------------------------------------------------------- */
+/*                              Main view                                     */
+/* -------------------------------------------------------------------------- */
 
 export function LeadershipView({
   founder,
@@ -107,65 +112,101 @@ export function LeadershipView({
   defaultYearId: string;
 }) {
   const [activeId, setActiveId] = useState<string>(defaultYearId);
+  const [selected, setSelected] = useState<Leader | null>(null);
   const active = years.find((y) => y.id === activeId) ?? years[0];
-  const sortedTeam = [...active.team].sort(
-    (a, b) => (a.order ?? 99) - (b.order ?? 99),
-  );
 
   return (
-    <div className="grid gap-12">
-      <div className="grid gap-6">
-        <Badge tone="amber" className="self-start">
-          Permanent leadership
-        </Badge>
+    <>
+      <div className="grid gap-14 md:gap-20">
+        {/* Permanent leadership — Founder + Faculty Advisor (no badge above them) */}
         <div className="grid lg:grid-cols-2 gap-6">
-          <FeatureCard leader={founder} variant="founder" />
-          <FeatureCard leader={facultyAdvisor} variant="advisor" />
+          <PermanentCard leader={founder} variant="founder" />
+          <PermanentCard leader={facultyAdvisor} variant="advisor" delay={0.1} />
         </div>
-      </div>
 
-      <div className="grid gap-6">
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-          <Badge tone="crimson" className="self-start">
-            <Users className="h-3 w-3" /> Executive teams by year
-          </Badge>
-          <div
-            role="tablist"
-            aria-label="Select leadership year"
-            className="inline-flex flex-wrap p-1 rounded-full bg-charcoal-100 self-start"
+        {/* Year-aware org chart */}
+        <div className="grid gap-8">
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: easeOut }}
+            className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4"
           >
-            {years.map((y) => (
-              <button
-                key={y.id}
-                role="tab"
-                aria-selected={activeId === y.id}
-                onClick={() => setActiveId(y.id)}
-                className={cn(
-                  "px-4 sm:px-5 py-2 text-sm font-semibold rounded-full transition-colors",
-                  activeId === y.id
-                    ? "bg-white text-charcoal-900 shadow-[var(--shadow-soft)]"
-                    : "text-charcoal-600 hover:text-charcoal-900",
-                )}
-              >
-                {y.label}
-                {y.isCurrent && (
-                  <span className="ml-2 inline-flex items-center justify-center px-1.5 h-5 rounded-full bg-crimson-100 text-crimson-700 text-[10px] font-bold uppercase tracking-wider">
-                    Current
+            <Badge tone="crimson" className="self-start">
+              <Users className="h-3 w-3" /> Executive teams by year
+            </Badge>
+
+            <div
+              role="tablist"
+              aria-label="Select leadership year"
+              className="inline-flex flex-wrap p-1 rounded-full bg-charcoal-100 self-start"
+            >
+              {years.map((y) => (
+                <button
+                  key={y.id}
+                  role="tab"
+                  aria-selected={activeId === y.id}
+                  onClick={() => setActiveId(y.id)}
+                  className={cn(
+                    "relative px-4 sm:px-5 py-2 text-sm font-semibold rounded-full transition-colors",
+                    activeId === y.id
+                      ? "text-charcoal-900"
+                      : "text-charcoal-600 hover:text-charcoal-900",
+                  )}
+                >
+                  {activeId === y.id && (
+                    <motion.span
+                      layoutId="leadership-tab-pill"
+                      className="absolute inset-0 bg-white rounded-full shadow-[var(--shadow-soft)]"
+                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                    />
+                  )}
+                  <span className="relative z-10 inline-flex items-center gap-2">
+                    {y.label}
+                    {y.isCurrent && (
+                      <span className="inline-flex items-center justify-center px-1.5 h-5 rounded-full bg-crimson-100 text-crimson-700 text-[10px] font-bold uppercase tracking-wider">
+                        Current
+                      </span>
+                    )}
                   </span>
-                )}
-              </button>
-            ))}
-          </div>
-        </div>
+                </button>
+              ))}
+            </div>
+          </motion.div>
 
-        <p className="text-sm text-charcoal-500">{active.range}</p>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={active.id}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.4, ease: easeOut }}
+              className="grid gap-3"
+            >
+              <p className="text-sm text-charcoal-500">{active.range}</p>
+              <p className="text-xs text-charcoal-400">
+                Tap any person to see their full bio.
+              </p>
+            </motion.div>
+          </AnimatePresence>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {sortedTeam.map((leader) => (
-            <TeamMemberCard key={leader.name + leader.role} leader={leader} />
-          ))}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={active.id + "-tree"}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3, ease: easeOut }}
+              className="pt-4 pb-2"
+            >
+              <OrgTree team={active.team} onSelect={(l) => setSelected(l)} />
+            </motion.div>
+          </AnimatePresence>
         </div>
       </div>
-    </div>
+
+      <LeaderModal leader={selected} onClose={() => setSelected(null)} />
+    </>
   );
 }
