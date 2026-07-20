@@ -13,7 +13,7 @@ export const metadata = buildMetadata({
   title: "Programs",
   path: "/programs",
   description:
-    "Workshops, pitch competitions, mentorship, and networking — the four pillars of AIS programming.",
+    "Workshops, pitch competitions, mentorship, and networking, the four pillars of AIS programming.",
 });
 
 export default function ProgramsPage() {
@@ -45,7 +45,7 @@ export default function ProgramsPage() {
               An academic year inside the society.
             </h2>
             <p className="mt-4 text-lg text-charcoal-600 max-w-2xl">
-              The rhythm of AIS is intentional. Every term layers programming so members go from learning to building to shipping — fast.
+              The rhythm of AIS is intentional. Every term layers programming so members go from learning to building to shipping, fast.
             </p>
           </div>
 
@@ -57,7 +57,7 @@ export default function ProgramsPage() {
         <div className="text-center max-w-2xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-balance">Ready to step into a program?</h2>
           <p className="mt-4 text-lg text-charcoal-600">
-            All AIS programs are open to current CMU-Africa students. Membership is free — applications take less than three minutes.
+            All AIS programs are open to current CMU-Africa students. Membership is free, applications take less than three minutes.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Button href="/contact" variant="outline" size="lg">

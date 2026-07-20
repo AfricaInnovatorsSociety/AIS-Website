@@ -9,7 +9,7 @@ export const metadata = buildMetadata({
   title: "Events",
   path: "/events",
   description:
-    "Upcoming and past events from the Africa Innovators Society — pitch nights, workshops, founder dinners, and more.",
+    "Upcoming and past events from the Africa Innovators Society, pitch nights, workshops, founder dinners, and more.",
 });
 
 export default function EventsPage() {

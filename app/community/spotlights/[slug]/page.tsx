@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const s = getSpotlightBySlug(slug);
   if (!s) return buildMetadata({ title: "Spotlight not found" });
   return buildMetadata({
-    title: `${s.frontmatter.name} — Spotlight`,
+    title: `${s.frontmatter.name} | Spotlight`,
     description: s.frontmatter.excerpt,
     path: `/community/spotlights/${slug}`,
   });

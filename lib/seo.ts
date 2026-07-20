@@ -9,7 +9,7 @@ type BuildOpts = {
 };
 
 export function buildMetadata({ title, description, path = "/", image }: BuildOpts = {}): Metadata {
-  const fullTitle = title ? `${title} — ${siteConfig.name}` : `${siteConfig.name} — ${siteConfig.tagline}`;
+  const fullTitle = title ? `${title} | ${siteConfig.name}` : `${siteConfig.name} | ${siteConfig.tagline}`;
   const desc = description ?? siteConfig.description;
   const url = `${siteConfig.url}${path}`;
   const ogImage = image ?? `${siteConfig.url}/og/default.png`;

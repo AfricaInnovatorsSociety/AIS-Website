@@ -3,7 +3,7 @@ export type Partner = {
   logo?: string;
   url?: string;
   tier?: "platinum" | "gold" | "silver" | "community";
-  /** CSS class(es) for the tile background — defaults to white when omitted. */
+  /** CSS class(es) for the tile background, defaults to white when omitted. */
   tileBg?: string;
   /** Approximate intrinsic logo dimensions, used to render via next/image. */
   width?: number;

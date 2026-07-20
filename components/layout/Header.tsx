@@ -24,7 +24,7 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // On the home page, the hero has a photo background — the header sits
+  // On the home page, the hero has a photo background, the header sits
   // over that photo when at the top of the page, and switches to the
   // normal cream-on-dark treatment once the user scrolls past the hero
   // OR the mobile menu opens (so the drawer visually connects to the header).

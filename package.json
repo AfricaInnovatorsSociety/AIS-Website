@@ -2,7 +2,7 @@
   "name": "ais-website",
   "version": "0.1.0",
   "private": true,
-  "description": "Africa Innovators Society at CMU-Africa — official website.",
+  "description": "Africa Innovators Society at CMU-Africa official website.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

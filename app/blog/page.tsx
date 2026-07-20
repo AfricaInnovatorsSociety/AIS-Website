@@ -8,7 +8,7 @@ export const metadata = buildMetadata({
   title: "Blog",
   path: "/blog",
   description:
-    "Insights, playbooks, and lessons from the AIS community — written by members, mentors, and alumni.",
+    "Insights, playbooks, and lessons from the AIS community, written by members, mentors, and alumni.",
 });
 
 export default function BlogPage() {

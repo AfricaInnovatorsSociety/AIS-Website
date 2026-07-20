@@ -28,7 +28,7 @@ export default function CommunityPage() {
       <PageHero
         eyebrow="Community"
         title="The people behind the ventures."
-        description="AIS is more than a club — it's a network of builders, mentors, and alumni who back each other long after graduation. Meet a few of them."
+        description="AIS is more than a club, it's a network of builders, mentors, and alumni who back each other long after graduation. Meet a few of them."
       />
 
       <Section className="!pt-4" id="spotlights">

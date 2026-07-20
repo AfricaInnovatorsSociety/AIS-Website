@@ -13,7 +13,7 @@ export const metadata = buildMetadata({
   title: "Leadership",
   path: "/about/leadership",
   description:
-    "Meet the founder, faculty advisor, and elected student leadership behind the Africa Innovators Society — across every academic year since the club's founding.",
+    "Meet the founder, faculty advisor, and elected student leadership behind the Africa Innovators Society, across every academic year since the club's founding.",
 });
 
 export default function LeadershipPage() {

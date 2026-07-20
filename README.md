@@ -180,18 +180,19 @@ The logo lives in [`components/layout/Logo.tsx`](./components/layout/Logo.tsx) a
 
 ## Deploying to Vercel
 
-1. Push this repo to GitHub.
+1. Push this repo to GitHub (`AfricaInnovatorsSociety/AIS-Website`).
 2. Go to [vercel.com/new](https://vercel.com/new) and import the repo.
-3. Vercel auto-detects Next.js — no config needed. Hit **Deploy**.
-4. (Optional) Add a custom domain in **Project Settings → Domains**.
+3. Framework preset: **Next.js**. Build command `npm run build`. Hit **Deploy**.
+4. Set env var `NEXT_PUBLIC_SITE_URL` to your production URL (see `.env.example`).
+5. (Optional) Add a custom domain in **Project Settings → Domains**.
 
-### Connecting `africainnovators.cmu.edu`
+### Connecting a custom domain
 
-CMU subdomains require a CNAME record added by CMU IT. Once configured:
+1. In Vercel → Project → **Settings → Domains** → add your domain.
+2. At your DNS provider, add the records Vercel shows (usually a CNAME to `cname.vercel-dns.com`).
+3. Vercel provisions HTTPS automatically once DNS propagates.
 
-1. In Vercel → Domains → Add `africainnovators.cmu.edu`
-2. Point the CMU CNAME record to `cname.vercel-dns.com`
-3. Vercel will provision an HTTPS certificate automatically
+For a CMU subdomain like `africainnovators.cmu.edu`, ask CMU IT to create the CNAME, then add the same domain in Vercel.
 
 ---
 

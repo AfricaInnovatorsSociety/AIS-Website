@@ -80,7 +80,7 @@ function NodeCard({
         "group relative text-left rounded-2xl bg-white border border-charcoal-100 shadow-[var(--shadow-soft)] hover:border-crimson-200 hover:shadow-[var(--shadow-strong)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-crimson-700 focus-visible:ring-offset-2 transition-shadow overflow-hidden",
         cfg.width,
       )}
-      aria-label={`${leader.name}, ${leader.role} — view details`}
+      aria-label={`${leader.name}, ${leader.role}. View details`}
     >
       <div
         className={cn(
@@ -160,7 +160,7 @@ function BranchConnector({ count }: { count: number }) {
         transition={{ duration: 0.45, ease: easeOut }}
       />
 
-      {/* Horizontal trunk — only when more than 1 child (single child is just a vertical line) */}
+      {/* Horizontal trunk, only when more than 1 child (single child is just a vertical line) */}
       {count > 1 && (
         <motion.div
           aria-hidden
@@ -353,7 +353,7 @@ export function OrgTree({
   const vp = sorted.find((m) => (m.order ?? 99) === 2);
   const leads = sorted.filter((m) => (m.order ?? 99) >= 3);
 
-  // Edge case: no president defined — promote VP to top
+  // Edge case: no president defined, promote VP to top
   const top = president ?? vp ?? sorted[0];
   const second = president ? vp : undefined;
   const bottoms = president ? leads : sorted.filter((m) => m !== top);

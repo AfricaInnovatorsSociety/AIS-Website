@@ -117,7 +117,7 @@ export function LeadershipView({
   return (
     <>
       <div className="grid gap-14 md:gap-20">
-        {/* Permanent leadership — Founder + Faculty Advisor (no badge above them) */}
+        {/* Permanent leadership, Founder + Faculty Advisor (no badge above them) */}
         <div className="grid lg:grid-cols-2 gap-6">
           <PermanentCard leader={founder} variant="founder" />
           <PermanentCard leader={facultyAdvisor} variant="advisor" delay={0.1} />

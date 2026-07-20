@@ -16,7 +16,7 @@ export function EventsView({
   upcoming: ContentEntry<EventFrontmatter>[];
   past: ContentEntry<EventFrontmatter>[];
 }) {
-  // Default tab is always "upcoming" — when none are scheduled the empty
+  // Default tab is always "upcoming", when none are scheduled the empty
   // state invites visitors to switch to the Past archive.
   const [tab, setTab] = useState<Tab>("upcoming");
 
@@ -117,7 +117,7 @@ export function EventsView({
           <CalendarOff className="h-10 w-10 mx-auto text-charcoal-300" />
           <p className="mt-4 text-charcoal-500">
             {tab === "upcoming"
-              ? "No upcoming events scheduled yet — check back soon."
+              ? "No upcoming events scheduled yet. Check back soon."
               : "No past events match this filter."}
           </p>
           {tab === "upcoming" && past.length > 0 && (

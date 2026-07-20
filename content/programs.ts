@@ -38,7 +38,7 @@ export const programs: Program[] = [
     description:
       "AIS Pitch Night and our annual Startup Weekend bring the best student ideas onto one stage. Compete for grant funding, get live feedback from judges, and walk away with a sharper venture than you arrived with.",
     highlights: [
-      "AIS Pitch Night — monthly 3-minute pitches",
+      "AIS Pitch Night, monthly 3-minute pitches",
       "Annual Startup Weekend competition",
       "Cash prizes and incubation slots",
       "Investor and operator judging panel",
@@ -53,7 +53,7 @@ export const programs: Program[] = [
     shortDescription:
       "Get paired with a founder, operator, or investor who's walked your path before.",
     description:
-      "Our mentor network spans African unicorns, VC funds, and global tech companies. Members are matched 1:1 with mentors based on stage, sector, and goals — and meet monthly throughout the academic year.",
+      "Our mentor network spans African unicorns, VC funds, and global tech companies. Members are matched 1:1 with mentors based on stage, sector, and goals, and meet monthly throughout the academic year.",
     highlights: [
       "Curated 1:1 mentor matching",
       "Monthly structured check-ins",
@@ -70,7 +70,7 @@ export const programs: Program[] = [
     shortDescription:
       "Curated mixers, founder dinners, and partner sessions that open real doors.",
     description:
-      "We bring in founders, funders, and operators every term — and put our members in the room. From intimate founder dinners to ecosystem mixers across Kigali and beyond, AIS is where relationships compound.",
+      "We bring in founders, funders, and operators every term, and put our members in the room. From intimate founder dinners to ecosystem mixers across Kigali and beyond, AIS is where relationships compound.",
     highlights: [
       "Founder dinners and fireside chats",
       "Ecosystem mixers in Kigali, Lagos, Nairobi",

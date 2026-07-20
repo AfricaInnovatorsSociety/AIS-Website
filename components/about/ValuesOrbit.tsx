@@ -240,7 +240,7 @@ export function ValuesOrbit() {
         ))}
       </div>
 
-      {/* Mobile-friendly list fallback for very narrow screens — hidden when orbit fits */}
+      {/* Mobile-friendly list fallback for very narrow screens, hidden when orbit fits */}
       <p className="sr-only">
         {values.map((v) => `${v.title}: ${v.description}`).join(" ")}
       </p>

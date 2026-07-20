@@ -10,7 +10,7 @@ export const metadata = buildMetadata({
   title: "Contact",
   path: "/contact",
   description:
-    "Get in touch with the Africa Innovators Society — for membership, mentorship, sponsorship, or general enquiries.",
+    "Get in touch with the Africa Innovators Society, for membership, mentorship, sponsorship, or general enquiries.",
 });
 
 const contactRoutes: ContactRoute[] = [
@@ -24,14 +24,14 @@ const contactRoutes: ContactRoute[] = [
   {
     key: "mentor",
     title: "Mentorship",
-    description: "Operators, founders, and investors — apply to mentor the next generation of African founders.",
+    description: "Operators, founders, and investors, apply to mentor the next generation of African founders.",
     cta: "Apply to mentor",
     url: siteConfig.forms.mentorship,
   },
   {
     key: "partner",
     title: "Sponsorship & partnership",
-    description: "Companies, funds, and organisations who want to back AIS — let's build something together.",
+    description: "Companies, funds, and organisations who want to back AIS, let's build something together.",
     cta: "Start the conversation",
     url: siteConfig.forms.sponsorship,
   },
@@ -97,7 +97,7 @@ export default function ContactPage() {
               Come hang out where we hang out.
             </h2>
             <p className="mt-4 text-charcoal-600 max-w-md">
-              The fastest way to keep up with AIS day-to-day — follow us across the channels you already use.
+              The fastest way to keep up with AIS day-to-day, follow us across the channels you already use.
             </p>
 
             <SocialCards

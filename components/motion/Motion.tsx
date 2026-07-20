@@ -139,7 +139,7 @@ export function StaggerItem({
 
 /**
  * Animates a numeric value as it scrolls into view.
- * Supports values like "100+", "$30K+", "10+" — any numeric portion is animated,
+ * Supports values like "100+", "$30K+", "10+", any numeric portion is animated,
  * any prefix/suffix is kept.
  */
 export function CountUp({
