@@ -39,13 +39,19 @@ export const leadershipBusinessSummitSpeakerGroups: SummitSpeakerGroup[] = [
   },
   {
     id: "founding-address",
-    label: "Founding President's Address",
+    label: "Presidential Address",
     speakers: [
       {
         name: "Muhammad Aliyu",
         title: "Founding President, Africa Innovators Society",
         bio: "A CMU-Africa alumnus and the founder of AIS, Muhammad launched the society and grew it into a student entrepreneurship community connected across universities and the Kigali ecosystem. His address connects AIS's founding story to this year's theme.",
         photo: "/images/events/leadership-business-summit-2026/speakers/muhammad-aliyu.png",
+      },
+      {
+        name: "Stephen David Mhya",
+        title: "President, Africa Innovators Society",
+        bio: "Stephen leads AIS in 2025-26, securing a landmark community partnership with the Inclusive Fintech Forum, convening 100+ leaders at the AIS Leadership Summit, and representing AIS as a panelist at the Inclusive Fintech Forum in Kigali. His address looks ahead to where the society is going next.",
+        photo: "/images/leadership/stephen-david-mhya.png",
       },
     ],
   },
