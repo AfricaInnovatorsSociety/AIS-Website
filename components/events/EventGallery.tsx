@@ -74,7 +74,10 @@ export function EventGallery({
         }}
         aria-label={title}
       >
-        {normalized.map((img, i) => (
+        {normalized.map((img, i) => {
+          const isLone = count === 1;
+          const isFeatured = i === 0 && count > 1;
+          return (
           <motion.button
             key={i}
             type="button"
@@ -91,9 +94,9 @@ export function EventGallery({
             onClick={() => setActive(i)}
             className={cn(
               "group relative overflow-hidden rounded-2xl bg-charcoal-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-crimson-700 focus-visible:ring-offset-2",
-              // Featured first tile takes extra space on desktop for visual rhythm
-              i === 0 && "md:col-span-2 md:row-span-2 aspect-[4/3] md:aspect-auto",
-              i !== 0 && "aspect-[4/3]",
+              isLone && "col-span-full mx-auto w-full max-w-xl aspect-[3/4] sm:aspect-[4/5]",
+              isFeatured && "md:col-span-2 md:row-span-2 aspect-[4/3]",
+              !isLone && !isFeatured && "aspect-[4/3]",
             )}
             aria-label={img.alt || `View image ${i + 1}`}
           >
@@ -102,7 +105,10 @@ export function EventGallery({
               src={asset(img.src)}
               alt={img.alt || ""}
               loading={i < 3 ? "eager" : "lazy"}
-              className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.06]"
+              className={cn(
+                "absolute inset-0 h-full w-full transition-transform duration-500 group-hover:scale-[1.04]",
+                isLone ? "object-contain bg-charcoal-950" : "object-cover",
+              )}
               draggable={false}
             />
             <div
@@ -116,7 +122,8 @@ export function EventGallery({
               <ZoomIn className="h-4 w-4" />
             </div>
           </motion.button>
-        ))}
+          );
+        })}
       </motion.div>
 
       <AnimatePresence>

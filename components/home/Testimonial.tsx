@@ -58,48 +58,46 @@ export function Testimonial() {
         >
           <Quote className="mx-auto h-10 w-10 text-crimson-700" aria-hidden />
 
-          <div className="relative mt-6 min-h-[11rem] md:min-h-[10rem]" aria-live="polite">
+          <div className="relative mt-6" aria-live="polite">
             <AnimatePresence mode="wait" custom={direction}>
-              <motion.blockquote
+              <motion.div
                 key={current.name}
                 custom={direction}
                 initial={
                   reduce
                     ? { opacity: 0 }
-                    : { opacity: 0, x: direction * 40, filter: "blur(4px)" }
+                    : { opacity: 0, x: direction * 36 }
                 }
-                animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+                animate={{ opacity: 1, x: 0 }}
                 exit={
                   reduce
                     ? { opacity: 0 }
-                    : { opacity: 0, x: direction * -40, filter: "blur(4px)" }
+                    : { opacity: 0, x: direction * -36 }
                 }
-                transition={{ duration: 0.55, ease: easeOut }}
-                className="absolute inset-x-0 top-0"
+                transition={{ duration: 0.45, ease: easeOut }}
+                className="w-full"
               >
-                <p className="text-2xl md:text-3xl lg:text-[2.1rem] font-semibold leading-[1.3] text-charcoal-900 text-balance">
-                  &ldquo;{current.quote}&rdquo;
-                </p>
-              </motion.blockquote>
+                <blockquote>
+                  <p className="text-xl sm:text-2xl md:text-3xl font-semibold leading-[1.35] text-charcoal-900 text-balance">
+                    &ldquo;{current.quote}&rdquo;
+                  </p>
+                </blockquote>
+
+                <div className="mt-8 flex items-center justify-center gap-4">
+                  <Avatar
+                    name={current.name}
+                    src={current.photo}
+                    size={64}
+                    className="!ring-crimson-100"
+                  />
+                  <div className="text-left">
+                    <div className="font-semibold text-charcoal-900">{current.name}</div>
+                    <div className="text-sm text-charcoal-500">{current.role}</div>
+                  </div>
+                </div>
+              </motion.div>
             </AnimatePresence>
           </div>
-
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={`${current.name}-meta`}
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.4, ease: easeOut }}
-              className="mt-10 flex items-center justify-center gap-4"
-            >
-              <Avatar name={current.name} src={current.photo} size={64} className="!ring-crimson-100" />
-              <div className="text-left">
-                <div className="font-semibold text-charcoal-900">{current.name}</div>
-                <div className="text-sm text-charcoal-500">{current.role}</div>
-              </div>
-            </motion.div>
-          </AnimatePresence>
 
           <div className="mt-10 flex items-center justify-center gap-4">
             <button
