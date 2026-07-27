@@ -77,12 +77,51 @@ export const siteConfig = {
     general: "https://forms.gle/REPLACE_GENERAL_CONTACT",
   },
 
+  testimonials: [
+    {
+      quote:
+        "AIS at CMU-Africa has been a game-changer. It's where tech skills meet entrepreneurship, and where ideas turn into real solutions. We're not just students here; we're the future tech leaders of Africa.",
+      name: "Sheila Wafula",
+      role: "MS IT '26 · AIS Member",
+      photo: "/images/testimonials/sheila-wafula.png",
+    },
+    {
+      quote:
+        "AIS at CMU-Africa has been a game-changer for me. It's not just a club; it's where tech skills meet entrepreneurship. The Jenga Hackathon 2024 was a highlight, my team won, and I learned so much about turning ideas into real solutions.",
+      name: "Armel Ulrich Codjia",
+      role: "MS IT '26 · Software Engineering",
+      photo: "/images/testimonials/armel-ulrich-codjia.png",
+    },
+    {
+      quote:
+        "I have been very fortunate to have been a part of AIS. I had the opportunity to meet and speak to people that were previously inaccessible within the ecosystem and receive support from the club to continue to improve my product.",
+      name: "David Masoperh",
+      role: "MSIT '25 · Co-Founder, Pebla",
+      photo: "/images/testimonials/david-masoperh.png",
+    },
+    {
+      quote:
+        "Joining AIS has been an incredible opportunity to grow. A memorable moment was my team coming second in the Tartans Innovate Hackathon. This community is a space where we're building the future of Africa, one tech solution at a time.",
+      name: "Oseno Ewaose-Joseph",
+      role: "MSIT '26 · AIS Member",
+      photo: "/images/testimonials/oseno-ewaose-joseph.png",
+    },
+    {
+      quote:
+        "What began as a connection between the Founders' Society at ALU and AIS has been a remarkable journey of growth. AIS created opportunities that expanded my network and nurtured the next generation of African innovators.",
+      name: "Ayobami Agbaje",
+      role: "President, Founders' Society · African Leadership University",
+      photo: "/images/testimonials/ayobami-agbaje.png",
+    },
+  ],
+
+  /** @deprecated Prefer testimonials[]; kept for older references. */
   testimonial: {
     quote:
       "AIS at CMU-Africa has been a game-changer. It's where tech skills meet entrepreneurship, and where ideas turn into real solutions. We're not just students here; we're the future tech leaders of Africa.",
     name: "Sheila Wafula",
     role: "MS IT '26 · AIS Member",
-    photo: "/images/sheila-wafula.png",
+    photo: "/images/testimonials/sheila-wafula.png",
   },
 
   /** Toggle sections that are not ready for public launch. */

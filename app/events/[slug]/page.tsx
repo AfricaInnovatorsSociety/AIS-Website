@@ -9,7 +9,9 @@ import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Container";
 import { mdxComponents } from "@/components/mdx/mdx-components";
 import { EventGallery } from "@/components/events/EventGallery";
+import { EventSpeakers } from "@/components/events/EventSpeakers";
 import { GoogleFormEmbed } from "@/components/forms/GoogleFormEmbed";
+import { leadershipBusinessSummitSpeakerGroups } from "@/content/events/leadership-business-summit-2026-speakers";
 import { asset } from "@/lib/asset";
 import { buildMetadata } from "@/lib/seo";
 import { siteConfig } from "@/content/site.config";
@@ -38,6 +40,8 @@ export default async function EventDetailPage({ params }: { params: Promise<{ sl
   const upcoming = isUpcoming(frontmatter.date);
   const cover = frontmatter.cover;
   const gallery = frontmatter.gallery ?? [];
+  const speakerGroups =
+    slug === "leadership-business-summit-2026" ? leadershipBusinessSummitSpeakerGroups : [];
 
   return (
     <>
@@ -126,6 +130,8 @@ export default async function EventDetailPage({ params }: { params: Promise<{ sl
             <MDXRemote source={content} components={mdxComponents} />
           </div>
         </Section>
+
+        {speakerGroups.length > 0 && <EventSpeakers groups={speakerGroups} />}
 
         {upcoming && frontmatter.registrationEmbed && (
           <Section id="register" className="bg-white border-t border-charcoal-100 !pt-12 md:!pt-14">
