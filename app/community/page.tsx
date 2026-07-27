@@ -68,8 +68,8 @@ export default function CommunityPage() {
             title="Operators, founders, and investors in our corner."
             description="A snapshot of the mentor network. Become a member to get matched 1:1."
           />
-          <Button href={siteConfig.forms.mentorship} variant="outline" size="md">
-            Become a mentor
+          <Button href={siteConfig.forms.membership} variant="outline" size="md">
+            Join AIS
           </Button>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">

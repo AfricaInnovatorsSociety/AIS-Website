@@ -61,7 +61,7 @@ export const programs: Program[] = [
       "Alumni-led founder circles",
     ],
     ctaLabel: "Apply for a mentor",
-    ctaUrl: siteConfig.forms.mentorship,
+    ctaUrl: siteConfig.forms.membership,
   },
   {
     slug: "networking",

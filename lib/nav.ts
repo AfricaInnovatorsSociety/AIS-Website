@@ -3,6 +3,7 @@ import { siteConfig } from "@/content/site.config";
 const allNavItems = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
+  { href: "/about/leadership", label: "Leadership" },
   { href: "/programs", label: "Programs" },
   { href: "/events", label: "Events" },
   { href: "/community", label: "Community" },

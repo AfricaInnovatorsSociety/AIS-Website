@@ -64,7 +64,9 @@ export function Header() {
             const isActive =
               item.href === "/"
                 ? pathname === "/"
-                : pathname === item.href || pathname.startsWith(`${item.href}/`);
+                : item.href === "/about"
+                  ? pathname === "/about"
+                  : pathname === item.href || pathname.startsWith(`${item.href}/`);
 
             return (
               <Link
@@ -94,8 +96,6 @@ export function Header() {
         <div className="flex items-center gap-2">
           <Link
             href={siteConfig.forms.membership}
-            target="_blank"
-            rel="noopener noreferrer"
             className={cn(
               "hidden sm:inline-flex items-center gap-1.5 rounded-full text-sm font-semibold px-4 py-2 transition-colors shadow-[var(--shadow-soft)]",
               transparent

@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Container";
 import { mdxComponents } from "@/components/mdx/mdx-components";
 import { EventGallery } from "@/components/events/EventGallery";
+import { GoogleFormEmbed } from "@/components/forms/GoogleFormEmbed";
 import { asset } from "@/lib/asset";
 import { buildMetadata } from "@/lib/seo";
 import { siteConfig } from "@/content/site.config";
@@ -125,6 +126,26 @@ export default async function EventDetailPage({ params }: { params: Promise<{ sl
             <MDXRemote source={content} components={mdxComponents} />
           </div>
         </Section>
+
+        {upcoming && frontmatter.registrationEmbed && (
+          <Section id="register" className="bg-white border-t border-charcoal-100 !pt-12 md:!pt-14">
+            <div className="mx-auto max-w-3xl">
+              <h2 className="text-2xl md:text-3xl font-bold text-center text-balance">
+                Register for this event
+              </h2>
+              <p className="mt-3 text-center text-charcoal-600 max-w-2xl mx-auto">
+                Complete the form below to secure your place at the summit.
+              </p>
+              <div className="mt-8">
+                <GoogleFormEmbed
+                  src={frontmatter.registrationEmbed}
+                  title={`Register for ${frontmatter.title}`}
+                  height={1265}
+                />
+              </div>
+            </div>
+          </Section>
+        )}
 
         {gallery.length > 0 && (
           <Section className="bg-white border-t border-charcoal-100 !pt-12 md:!pt-14">

@@ -85,8 +85,6 @@ export function MobileNav({
             })}
             <Link
               href={siteConfig.forms.membership}
-              target="_blank"
-              rel="noopener noreferrer"
               onClick={() => setOpen(false)}
               className="mt-6 inline-flex items-center justify-center rounded-full bg-crimson-700 hover:bg-crimson-800 text-white font-semibold px-6 py-3.5 transition-colors"
             >

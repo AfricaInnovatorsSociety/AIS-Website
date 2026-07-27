@@ -11,7 +11,7 @@ export const siteConfig = {
   tagline: "Integrity. Innovation. Growth.",
   // Override at build time with NEXT_PUBLIC_SITE_URL if deploying somewhere
   // other than the eventual production domain.
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://africainnovators.cmu.edu",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://africainnovatorssociety.app",
   description:
     "The Africa Innovators Society (AIS) is the official entrepreneurship club of Carnegie Mellon University Africa. We connect CMU-Africa students with Africa's innovation ecosystem through fireside chats, hackathons, summits, and ventures that turn bold ideas into real impact.",
   affiliation: "Carnegie Mellon University Africa",
@@ -57,7 +57,7 @@ export const siteConfig = {
   ],
 
   contact: {
-    email: "ais@africa.cmu.edu", // {TODO confirm real email}
+    email: "Africainnovatorsociety@gmail.com",
     address: "Plot No A8, Kigali Special Economic Zone Phase II, Kigali, Rwanda",
     addressShort: "CMU-Africa · Kigali, Rwanda",
   },
@@ -69,12 +69,12 @@ export const siteConfig = {
     youtube: "",
   },
 
-  // Replace with real Google Form URLs before launch.
   forms: {
-    membership: "https://forms.gle/REPLACE_MEMBERSHIP",
+    /** Internal page that embeds the membership Google Form. */
+    membership: "/join",
+    membershipEmbed:
+      "https://docs.google.com/forms/d/e/1FAIpQLSc_a22i43xA5FphAKTHR0kXhvXWGgt36QG1gVn0UG4x_wut9g/viewform?embedded=true",
     general: "https://forms.gle/REPLACE_GENERAL_CONTACT",
-    mentorship: "https://forms.gle/REPLACE_MENTORSHIP",
-    sponsorship: "https://forms.gle/REPLACE_SPONSORSHIP",
   },
 
   testimonial: {

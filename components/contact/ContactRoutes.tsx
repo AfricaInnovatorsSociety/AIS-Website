@@ -18,10 +18,11 @@ const iconMap: Record<string, LucideIcon> = {
   mentor: Users2,
   partner: Handshake,
   news: Newspaper,
+  join: Users2,
 };
 
 export type ContactRoute = {
-  key: keyof typeof iconMap;
+  key: string;
   title: string;
   description: string;
   cta: string;

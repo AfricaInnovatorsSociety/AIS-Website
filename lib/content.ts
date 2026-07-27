@@ -11,6 +11,9 @@ export type EventFrontmatter = {
   cover?: string;
   gallery?: string[];
   registrationUrl?: string;
+  /** Google Forms embed URL shown on the event detail page. */
+  registrationEmbed?: string;
+  agendaUrl?: string;
   speaker?: string;
   tags?: string[];
   featured?: boolean;

@@ -10,7 +10,7 @@ export const metadata = buildMetadata({
   title: "Contact",
   path: "/contact",
   description:
-    "Get in touch with the Africa Innovators Society, for membership, mentorship, sponsorship, or general enquiries.",
+    "Get in touch with the Africa Innovators Society for membership or general enquiries.",
 });
 
 const contactRoutes: ContactRoute[] = [
@@ -22,18 +22,11 @@ const contactRoutes: ContactRoute[] = [
     url: siteConfig.forms.general,
   },
   {
-    key: "mentor",
-    title: "Mentorship",
-    description: "Operators, founders, and investors, apply to mentor the next generation of African founders.",
-    cta: "Apply to mentor",
-    url: siteConfig.forms.mentorship,
-  },
-  {
-    key: "partner",
-    title: "Sponsorship & partnership",
-    description: "Companies, funds, and organisations who want to back AIS, let's build something together.",
-    cta: "Start the conversation",
-    url: siteConfig.forms.sponsorship,
+    key: "join",
+    title: "Join AIS",
+    description: "Ready to become a member? Apply through our membership form.",
+    cta: "Join AIS",
+    url: siteConfig.forms.membership,
   },
 ];
 
