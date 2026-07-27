@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { siteConfig } from "@/content/site.config";
 import { currentLeadershipYear } from "@/content/leadership";
@@ -54,24 +53,6 @@ export function Hero() {
             visible: { transition: { staggerChildren: 0.12, delayChildren: 0.05 } },
           }}
         >
-          {/* Eyebrow pill */}
-          <motion.div
-            variants={{
-              hidden: { opacity: 0, y: 12 },
-              visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: easeOut } },
-            }}
-            className="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/20 px-3.5 py-1.5 text-xs font-semibold text-white backdrop-blur-md shadow-[var(--shadow-soft)] mb-6"
-          >
-            <motion.span
-              animate={{ rotate: [0, 14, -10, 0] }}
-              transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
-              className="inline-flex"
-            >
-              <Sparkles className="h-3.5 w-3.5 text-amber-soft" />
-            </motion.span>
-            <span>A student-led innovation society at {siteConfig.affiliation}</span>
-          </motion.div>
-
           {/* H1 */}
           <motion.h1
             variants={{
