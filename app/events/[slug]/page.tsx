@@ -56,10 +56,14 @@ export default async function EventDetailPage({ params }: { params: Promise<{ sl
                 alt=""
                 className="absolute inset-0 -z-10 h-full w-full object-cover"
               />
-              <div aria-hidden className="absolute inset-0 -z-10 bg-charcoal-950/70" />
+              <div aria-hidden className="absolute inset-0 -z-10 bg-charcoal-950/80" />
               <div
                 aria-hidden
-                className="absolute inset-0 -z-10 bg-gradient-to-b from-crimson-800/30 via-transparent to-charcoal-950/50"
+                className="absolute inset-0 -z-10 bg-gradient-to-b from-charcoal-950/50 via-charcoal-950/40 to-charcoal-950/75"
+              />
+              <div
+                aria-hidden
+                className="absolute inset-0 -z-10 bg-gradient-to-r from-charcoal-950/55 via-transparent to-charcoal-950/35"
               />
             </>
           ) : (
