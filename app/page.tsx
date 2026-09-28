@@ -1,4 +1,5 @@
 import { Hero } from "@/components/home/Hero";
+import { FeaturedStartupCall } from "@/components/home/FeaturedStartupCall";
 import { MissionSnapshot } from "@/components/home/MissionSnapshot";
 import { ImpactStats } from "@/components/home/ImpactStats";
 import { FeaturedEvent } from "@/components/home/FeaturedEvent";
@@ -14,6 +15,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <FeaturedStartupCall />
       <ImpactStats />
       <MissionSnapshot />
       <FeaturedEvent />

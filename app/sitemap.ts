@@ -13,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/about",
     "/about/leadership",
     "/join",
+    "/startups",
     ...(siteConfig.features.showPrograms ? (["/programs"] as const) : []),
     "/events",
     ...(siteConfig.features.showCommunity ? (["/community"] as const) : []),

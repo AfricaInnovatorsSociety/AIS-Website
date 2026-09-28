@@ -75,6 +75,11 @@ export const siteConfig = {
     membershipEmbed:
       "https://docs.google.com/forms/d/e/1FAIpQLSc_a22i43xA5FphAKTHR0kXhvXWGgt36QG1gVn0UG4x_wut9g/viewform?embedded=true",
     general: "https://forms.gle/REPLACE_GENERAL_CONTACT",
+    startupDirectory: "/startups",
+    startupDirectoryForm:
+      "https://docs.google.com/forms/d/e/1FAIpQLSf9thPThYv3t2HYrL-cRyLs68a3OgNZNUXeS5mk4jqTQWe-Sg/viewform",
+    startupDirectoryEmbed:
+      "https://docs.google.com/forms/d/e/1FAIpQLSf9thPThYv3t2HYrL-cRyLs68a3OgNZNUXeS5mk4jqTQWe-Sg/viewform?embedded=true",
   },
 
   testimonials: [
