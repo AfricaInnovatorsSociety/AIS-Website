@@ -121,7 +121,11 @@ export default async function EventDetailPage({ params }: { params: Promise<{ sl
 
             {upcoming && frontmatter.registrationUrl && (
               <div className="mt-8">
-                <Button href={frontmatter.registrationUrl} size="lg" withArrow>
+                <Button
+                  href={frontmatter.registrationEmbed ? "#register" : frontmatter.registrationUrl}
+                  size="lg"
+                  withArrow
+                >
                   Register for this event
                 </Button>
               </div>
@@ -144,7 +148,7 @@ export default async function EventDetailPage({ params }: { params: Promise<{ sl
                 Register for this event
               </h2>
               <p className="mt-3 text-center text-charcoal-600 max-w-2xl mx-auto">
-                Complete the form below to secure your place at the summit.
+                Complete the form below to secure your place at the event.
               </p>
               <div className="mt-8">
                 <GoogleFormEmbed
